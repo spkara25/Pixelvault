@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete your PixelVault purchase securely. Fast, encrypted checkout with multiple payment options." />
+  <title>Checkout — PixelVault</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/payment.css" />
+</head>
+<body class="page-wrapper">
+
+<!-- Minimal Navbar for checkout -->
+<nav class="navbar scrolled" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="navbar-logo-icon">⬡</div>
+      <span>PixelVault</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:13px;color:var(--text-secondary);">Secure Checkout</span>
+      <span style="font-size:16px;">🔒</span>
+    </div>
+    <div class="navbar-actions">
+      <div class="theme-toggle" data-theme-toggle id="theme-toggle"></div>
+      <a href="cart.html" class="btn btn-ghost btn-sm">← Back to Cart</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAYMENT PAGE -->
+<div class="payment-page">
+  <div class="container">
+
+    <!-- Progress Steps -->
+    <div class="progress-steps">
+      <div class="progress-step completed">
+        <div class="step-circle">✓</div>
+        <span class="step-label">Cart</span>
+      </div>
+      <div class="progress-step active">
+        <div class="step-circle">2</div>
+        <span class="step-label">Payment</span>
+      </div>
+      <div class="progress-step">
+        <div class="step-circle">3</div>
+        <span class="step-label">Confirmation</span>
+      </div>
+    </div>
+
+    <!-- Main Form -->
+    <div class="payment-form-wrap">
+
+      <!-- Order Summary (collapsible) -->
+      <div class="payment-card" style="padding:var(--sp-2) var(--sp-3);">
+        <div class="order-summary-toggle" id="summary-toggle">
+          <div class="order-summary-toggle-label">
+            <span>🛒</span>
+            <span>Order Summary</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="text-price" id="payment-order-total">$0.00</span>
+            <span id="summary-arrow" style="transition:transform 0.3s;color:var(--text-tertiary);font-size:12px;">▾</span>
+          </div>
+        </div>
+
+        <div class="order-summary-collapsed" id="summary-collapsed">
+          <div id="payment-summary-items" style="padding-bottom:var(--sp-2);border-bottom:1px solid var(--border-subtle);margin-bottom:8px;">
+            <!-- Populated by JS -->
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0;">
+            <span style="color:var(--text-secondary);">Processing fee</span>
+            <span style="font-family:var(--font-mono);">$0.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;padding:8px 0 0;">
+            <span>Total</span>
+            <span class="text-price" id="payment-order-total-2"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="payment-card" id="contact-section">
+        <div class="payment-section-title">
+          <div class="section-icon">👤</div>
+          Contact Information
+        </div>
+
+        <div class="fields-row">
+          <div class="float-field">
+            <input type="text" class="float-input" id="first-name" placeholder=" " autocomplete="given-name" />
+            <label class="float-label" for="first-name">First Name</label>
+          </div>
+          <div class="float-field">
+            <input type="text" class="float-input" id="last-name" placeholder=" " autocomplete="family-name" />
+            <label class="float-label" for="last-name">Last Name</label>
+          </div>
+        </div>
+
+        <div class="float-field">
+          <input type="email" class="float-input" id="email" placeholder=" " autocomplete="email" />
+          <label class="float-label" for="email">Email Address</label>
+          <span class="float-icon">✉</span>
+        </div>
+
+        <div class="float-field">
+          <input type="tel" class="float-input" id="phone" placeholder=" " autocomplete="tel" />
+          <label class="float-label" for="phone">Phone Number (optional)</label>
+          <span class="float-icon">📱</span>
+        </div>
+      </div>
+
+      <!-- Billing Address -->
+      <div class="payment-card">
+        <div class="payment-section-title">
+          <div class="section-icon">📍</div>
+          Billing Address
+        </div>
+
+        <div class="float-field">
+          <input type="text" class="float-input" id="address" placeholder=" " autocomplete="street-address" />
+          <label class="float-label" for="address">Street Address</label>
+        </div>
+
+        <div class="fields-row">
+          <div class="float-field">
+            <input type="text" class="float-input" id="city" placeholder=" " autocomplete="address-level2" />
+            <label class="float-label" for="city">City</label>
+          </div>
+          <div class="float-field">
+            <input type="text" class="float-input" id="zip" placeholder=" " autocomplete="postal-code" />
+            <label class="float-label" for="zip">ZIP / Postal Code</label>
+          </div>
+        </div>
+
+        <div class="float-field">
+          <input type="text" class="float-input" id="country" placeholder=" " value="India" autocomplete="country-name" />
+          <label class="float-label" for="country">Country</label>
+          <span class="float-icon">🌍</span>
+        </div>
+      </div>
+
+      <!-- Payment Method -->
+      <div class="payment-card">
+        <div class="payment-section-title">
+          <div class="section-icon">💳</div>
+          Payment Method
+        </div>
+
+        <!-- Method Tabs -->
+        <div class="payment-tabs">
+          <button class="pay-tab active" data-method="card">💳 Card</button>
+          <button class="pay-tab" data-method="paypal">🅱 PayPal</button>
+          <button class="pay-tab" data-method="upi">🇮🇳 UPI</button>
+          <button class="pay-tab" data-method="netbanking">🏦 Net Banking</button>
+        </div>
+
+        <!-- Card Section -->
+        <div id="card-section">
+          <!-- Live Card Preview -->
+          <div class="card-preview-wrap">
+            <div class="card-preview" id="card-preview">
+              <!-- Front -->
+              <div class="card-face card-front">
+                <div class="card-chip"></div>
+                <div class="card-number" id="card-number-display">•••• •••• •••• ••••</div>
+                <div class="card-details-row">
+                  <div>
+                    <div class="card-label">Card Holder</div>
+                    <div class="card-value" id="card-name-display">FULL NAME</div>
+                  </div>
+                  <div>
+                    <div class="card-label">Expires</div>
+                    <div class="card-value" id="card-expiry-display">MM/YY</div>
+                  </div>
+                  <div class="card-network" id="card-network">💳</div>
+                </div>
+              </div>
+
+              <!-- Back -->
+              <div class="card-face card-back">
+                <div class="card-magnetic-strip"></div>
+                <div class="card-cvv-row">
+                  <div style="font-size:10px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;flex-shrink:0;">CVV</div>
+                  <div class="card-cvv-strip" id="card-cvv-display">•••</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Fields -->
+          <form id="payment-form">
+            <div class="float-field">
+              <input
+                type="text"
+                class="float-input"
+                id="card-number-input"
+                placeholder=" "
+                maxlength="19"
+                autocomplete="cc-number"
+                inputmode="numeric"
+              />
+              <label class="float-label" for="card-number-input">Card Number</label>
+              <span class="float-icon">💳</span>
+            </div>
+
+            <div class="float-field">
+              <input
+                type="text"
+                class="float-input"
+                id="card-name-input"
+                placeholder=" "
+                autocomplete="cc-name"
+              />
+              <label class="float-label" for="card-name-input">Name on Card</label>
+            </div>
+
+            <div class="fields-row">
+              <div class="float-field" style="margin-bottom:0;">
+                <input
+                  type="text"
+                  class="float-input"
+                  id="card-expiry-input"
+                  placeholder=" "
+                  maxlength="5"
+                  autocomplete="cc-exp"
+                  inputmode="numeric"
+                />
+                <label class="float-label" for="card-expiry-input">Expiry (MM/YY)</label>
+              </div>
+              <div class="float-field" style="margin-bottom:0;">
+                <input
+                  type="text"
+                  class="float-input"
+                  id="card-cvv-input"
+                  placeholder=" "
+                  maxlength="4"
+                  autocomplete="cc-csc"
+                  inputmode="numeric"
+                />
+                <label class="float-label" for="card-cvv-input">CVV</label>
+                <span class="float-icon" style="cursor:help;" title="3-4 digit code on back of card">🔒</span>
+              </div>
+            </div>
+
+            <!-- Save card -->
+            <div style="display:flex;align-items:center;gap:10px;margin-top:var(--sp-2);padding:var(--sp-2);background:var(--bg-elevated);border-radius:var(--radius-sm);">
+              <input type="checkbox" id="save-card" style="width:16px;height:16px;accent-color:var(--accent-primary);" />
+              <label for="save-card" style="font-size:13px;color:var(--text-secondary);cursor:pointer;">
+                Save this card for future purchases
+              </label>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary btn-full btn-lg submit-btn" id="submit-btn" style="margin-top:var(--sp-3);">
+              <span class="btn-text">🔒 Pay <span id="submit-total">$0.00</span></span>
+              <div class="spinner"></div>
+            </button>
+          </form>
+        </div>
+
+        <!-- Alt Pay Placeholder -->
+        <div id="alt-pay-section" style="display:none;"></div>
+
+        <!-- Security badges -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:var(--sp-2);margin-top:var(--sp-2);flex-wrap:wrap;">
+          <div class="payment-method-icon">VISA</div>
+          <div class="payment-method-icon">MC</div>
+          <div class="payment-method-icon">AMEX</div>
+          <div class="payment-method-icon">🔒 SSL</div>
+          <div class="payment-method-icon">PCI</div>
+        </div>
+
+        <p style="text-align:center;font-size:11px;color:var(--text-tertiary);margin-top:var(--sp-1);">
+          Your payment is encrypted and secure. We never store your card details.
+        </p>
+      </div>
+
+    </div><!-- /payment-form-wrap -->
+  </div><!-- /container -->
+</div><!-- /payment-page -->
+
+<!-- SUCCESS MODAL -->
+<div class="success-modal" id="success-modal">
+  <div class="success-modal-backdrop"></div>
+  <div class="success-modal-content">
+    <div class="success-icon">✅</div>
+    <h2 class="success-title">Payment Successful!</h2>
+    <p class="success-sub">
+      Your assets are ready to download. A receipt has been sent to your email address.
+    </p>
+    <div class="success-order-id" id="success-order-id">PV-XXXXXX</div>
+    <div style="background:var(--bg-elevated);border-radius:var(--radius-md);padding:var(--sp-2);margin-bottom:var(--sp-3);">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;">
+        <span style="color:var(--text-secondary);">Amount paid</span>
+        <span class="text-price" id="success-amount"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;">
+        <span style="color:var(--text-secondary);">Download limit</span>
+        <span style="color:var(--text-primary);font-weight:500;">Unlimited</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      <button class="btn btn-primary" id="success-continue">Continue Shopping</button>
+      <a href="index.html" class="btn btn-ghost" style="text-align:center;">Go Home</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/payment.js"></script>
+<script>
+  // Update submit button total
+  window.addEventListener('load', () => {
+    const total = sessionStorage.getItem('pv-order-total') || '0.00';
+    const submitTotal = document.getElementById('submit-total');
+    const successAmount = document.getElementById('success-amount');
+    const paymentOrderTotal2 = document.getElementById('payment-order-total-2');
+
+    if (submitTotal) submitTotal.textContent = `$${total}`;
+    if (successAmount) successAmount.textContent = `$${total}`;
+    if (paymentOrderTotal2) paymentOrderTotal2.textContent = `$${total}`;
+  });
+</script>
+</body>
+</html>

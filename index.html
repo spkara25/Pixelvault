@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PixelVault — The premium digital asset marketplace for creatives. Browse millions of photos, graphics, templates, videos, and audio files." />
+  <title>PixelVault — Premium Digital Asset Marketplace</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body class="page-wrapper">
+
+<!-- ═══════════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <!-- Logo -->
+    <a href="index.html" class="navbar-logo">
+      <div class="navbar-logo-icon">⬡</div>
+      <span>PixelVault</span>
+    </a>
+
+    <!-- Category Pills (desktop) -->
+    <div class="navbar-cats hide-mobile">
+      <a href="category.html?cat=photography" class="navbar-cat-pill">📷 Photo</a>
+      <a href="category.html?cat=graphics"    class="navbar-cat-pill">🎨 Graphics</a>
+      <a href="category.html?cat=illustrations" class="navbar-cat-pill">✏️ Illustrations</a>
+      <a href="category.html?cat=templates"   class="navbar-cat-pill">📐 Templates</a>
+      <a href="category.html?cat=videos"      class="navbar-cat-pill">🎬 Videos</a>
+      <a href="category.html?cat=audio"       class="navbar-cat-pill">🎵 Audio</a>
+    </div>
+
+    <!-- Actions -->
+    <div class="navbar-actions">
+      <button class="navbar-icon-btn" data-search-open title="Search (⌘K)">
+        🔍
+      </button>
+      <a href="cart.html" class="navbar-icon-btn" style="text-decoration:none;" title="Cart">
+        🛒
+        <span class="cart-badge" id="cart-badge-nav" style="display:none;">0</span>
+      </a>
+      <!-- Theme Toggle -->
+      <div class="theme-toggle" data-theme-toggle title="Toggle theme" id="theme-toggle"></div>
+      <div class="navbar-avatar" onclick="window.location.href='signin.html'" title="Sign In">JD</div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     SEARCH OVERLAY
+═══════════════════════════════════════════════ -->
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true">
+  <div class="search-backdrop"></div>
+  <div class="search-modal">
+    <div class="search-input-wrap">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        class="search-main-input"
+        placeholder="Search 2M+ assets — photos, graphics, templates…"
+        autocomplete="off"
+        id="search-main-input"
+      />
+      <div class="search-kbd">
+        <span class="kbd">⌘</span>
+        <span class="kbd">K</span>
+      </div>
+    </div>
+
+    <div class="search-suggestions">
+      <h4>Popular right now</h4>
+      <div class="search-chips">
+        <button class="tag-chip search-chip">Gradient backgrounds</button>
+        <button class="tag-chip search-chip">Neon UI kit</button>
+        <button class="tag-chip search-chip">Aerial photography</button>
+        <button class="tag-chip search-chip">Brand identity</button>
+        <button class="tag-chip search-chip">Podcast cover art</button>
+        <button class="tag-chip search-chip">Social media templates</button>
+        <button class="tag-chip search-chip">3D illustrations</button>
+        <button class="tag-chip search-chip">Motion backgrounds</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-radial"></div>
+    <div class="hero-radial-2"></div>
+  </div>
+
+  <div class="hero-inner">
+    <!-- Left: Editorial content -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span>✦</span>
+        <span>2,000,000+ premium assets</span>
+      </div>
+
+      <h1 class="hero-headline">
+        Every pixel.<br>
+        <span class="gradient-text">Every story.</span>
+      </h1>
+
+      <p class="hero-sub">
+        The creative marketplace trusted by 50,000+ designers, developers, and storytellers. Premium assets, instantly usable.
+      </p>
+
+      <!-- Search Bar -->
+      <div class="hero-search-bar">
+        <select class="hero-search-cat" id="hero-search-cat">
+          <option value="">All Categories</option>
+          <option value="photography">📷 Photography</option>
+          <option value="graphics">🎨 Graphics</option>
+          <option value="illustrations">✏️ Illustrations</option>
+          <option value="templates">📐 Templates</option>
+          <option value="videos">🎬 Videos</option>
+          <option value="audio">🎵 Audio</option>
+        </select>
+        <input type="text" class="hero-search-input" placeholder="Search 2M+ assets…" id="hero-search-input" />
+        <button class="hero-search-btn" id="hero-search-btn">
+          <span>🔍</span> Search
+        </button>
+      </div>
+
+      <!-- CTAs -->
+      <div class="hero-ctas">
+        <a href="category.html" class="btn btn-primary btn-lg">Browse Assets</a>
+        <a href="signin.html" class="btn btn-ghost btn-lg">Sell Your Work</a>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">2M+</span>
+          <span class="hero-stat-label">Assets</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">50k+</span>
+          <span class="hero-stat-label">Creators</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">4.9★</span>
+          <span class="hero-stat-label">Rating</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">$12</span>
+          <span class="hero-stat-label">Avg. price</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Bento Grid -->
+    <div class="hero-right">
+      <div class="bento-grid">
+
+        <!-- Card 1: Wide landscape -->
+        <div class="bento-card bento-card-1"
+          data-asset-id="h1" data-asset-title="Aurora Dreams" data-asset-price="29" data-asset-category="Photography" data-asset-emoji="🌌" data-asset-creator="@luminos">
+          <div class="bento-thumb-placeholder" style="background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);">
+            🌌
+          </div>
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">📷 Photo</span>
+            <span class="badge badge-coral">Trending</span>
+          </div>
+          <div class="bento-meta">
+            <div>
+              <div class="bento-title">Aurora Dreams Collection</div>
+              <div class="bento-creator">by @luminos</div>
+            </div>
+            <div class="bento-price">$29</div>
+          </div>
+        </div>
+
+        <!-- Card 2: Portrait -->
+        <div class="bento-card bento-card-2"
+          data-asset-id="h2" data-asset-title="Neon Glitch UI" data-asset-price="49" data-asset-category="Graphics" data-asset-emoji="⚡" data-asset-creator="@synthwave">
+          <div class="bento-thumb-placeholder" style="background:linear-gradient(135deg,#1a0533,#6c63ff,#ff6584);">
+            ⚡
+          </div>
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">🎨 Graphics</span>
+          </div>
+          <div class="bento-meta">
+            <div>
+              <div class="bento-title">Neon Glitch UI Kit</div>
+              <div class="bento-creator">by @synthwave</div>
+            </div>
+            <div class="bento-price">$49</div>
+          </div>
+        </div>
+
+        <!-- Card 3: Portrait tall -->
+        <div class="bento-card bento-card-3"
+          data-asset-id="h3" data-asset-title="Forest Spirit" data-asset-price="19" data-asset-category="Illustrations" data-asset-emoji="🌿" data-asset-creator="@verdania">
+          <div class="bento-thumb-placeholder" style="background:linear-gradient(135deg,#0d3b2e,#1a6b4a,#2ab08a);height:65%;">
+            🌿
+          </div>
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">✏️ Illus.</span>
+            <span class="badge badge-green">New</span>
+          </div>
+          <div class="bento-meta" style="flex-direction:column;gap:4px;padding:8px 12px;">
+            <div class="bento-title">Forest Spirit Scenes</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div class="bento-creator">by @verdania</div>
+              <div class="bento-price">$19</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Landscape wide -->
+        <div class="bento-card bento-card-4"
+          data-asset-id="h4" data-asset-title="Brand Identity Pack" data-asset-price="89" data-asset-category="Templates" data-asset-emoji="📐" data-asset-creator="@studiozero">
+          <div class="bento-thumb-placeholder" style="background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);height:70%;">
+            📐
+          </div>
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">📐 Template</span>
+          </div>
+          <div class="bento-meta">
+            <div>
+              <div class="bento-title">Complete Brand Identity Pack</div>
+              <div class="bento-creator">by @studiozero</div>
+            </div>
+            <div class="bento-price">$89</div>
+          </div>
+        </div>
+
+        <!-- Card 5: Small -->
+        <div class="bento-card bento-card-5"
+          data-asset-id="h5" data-asset-title="Lo-Fi Beats" data-asset-price="12" data-asset-category="Audio" data-asset-emoji="🎵" data-asset-creator="@dreamsound">
+          <div class="bento-thumb-placeholder" style="background:linear-gradient(135deg,#1a0a2e,#4a1a6e);height:50%;">
+            🎵
+          </div>
+          <div class="bento-meta" style="padding:6px 10px;">
+            <div>
+              <div class="bento-title" style="font-size:11px;">Lo-Fi Study Beats</div>
+              <div class="bento-creator" style="font-size:9px;">by @dreamsound</div>
+            </div>
+            <div class="bento-price" style="font-size:12px;">$12</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CATEGORY STRIP
+═══════════════════════════════════════════════ -->
+<div class="category-strip">
+  <div class="category-strip-inner">
+    <a href="category.html?cat=photography" class="cat-chip active" data-cat="photography">
+      <span class="cat-chip-icon">📷</span> Photography
+    </a>
+    <a href="category.html?cat=graphics" class="cat-chip" data-cat="graphics">
+      <span class="cat-chip-icon">🎨</span> Graphics
+    </a>
+    <a href="category.html?cat=illustrations" class="cat-chip" data-cat="illustrations">
+      <span class="cat-chip-icon">✏️</span> Illustrations
+    </a>
+    <a href="category.html?cat=templates" class="cat-chip" data-cat="templates">
+      <span class="cat-chip-icon">📐</span> Templates
+    </a>
+    <a href="category.html?cat=videos" class="cat-chip" data-cat="videos">
+      <span class="cat-chip-icon">🎬</span> Videos
+    </a>
+    <a href="category.html?cat=audio" class="cat-chip" data-cat="audio">
+      <span class="cat-chip-icon">🎵</span> Audio
+    </a>
+    <a href="category.html?cat=mockups" class="cat-chip" data-cat="mockups">
+      <span class="cat-chip-icon">📦</span> Mockups
+    </a>
+    <a href="category.html?cat=fonts" class="cat-chip" data-cat="fonts">
+      <span class="cat-chip-icon">🔤</span> Fonts
+    </a>
+    <a href="category.html?cat=3d" class="cat-chip" data-cat="3d">
+      <span class="cat-chip-icon">🧊</span> 3D Assets
+    </a>
+    <a href="category.html?cat=patterns" class="cat-chip" data-cat="patterns">
+      <span class="cat-chip-icon">〰️</span> Patterns
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     FEATURED ASSETS
+═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <p class="text-meta" style="margin-bottom:4px;letter-spacing:0.06em;text-transform:uppercase;">✦ Hand-picked by our team</p>
+        <h2 class="text-h2">Featured Assets</h2>
+      </div>
+      <a href="category.html" class="btn btn-ghost btn-sm">View all →</a>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="masonry-grid" id="featured-grid">
+
+      <!-- Asset 1 — Tall -->
+      <div class="asset-card"
+        data-asset-id="f1" data-asset-title="Cosmic Dreamscape" data-asset-price="39" data-asset-category="Photography" data-asset-emoji="🌠" data-asset-creator="@cosmos">
+        <div class="asset-card-thumb tall" style="background:linear-gradient(160deg,#020024,#090979,#00d4ff);">
+          🌠
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">📷 Photo</span>
+            <span class="badge badge-coral">🔥 Hot</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary btn-add-cart flex-1" data-add-cart>🛒 Add to Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡ Preview</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Cosmic Dreamscape</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px">CO</div>
+              <span class="asset-card-creator-name">@cosmos</span>
+            </div>
+            <span class="text-price">$39</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 2.4k</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset 2 — Square -->
+      <div class="asset-card"
+        data-asset-id="f2" data-asset-title="Brutalist UI Pack" data-asset-price="59" data-asset-category="Graphics" data-asset-emoji="⬛" data-asset-creator="@rawhaus">
+        <div class="asset-card-thumb square" style="background:linear-gradient(135deg,#1a1a1a,#333,#222);">
+          ⬛
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">🎨 Graphics</span>
+            <span class="badge badge-green">New</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary btn-add-cart flex-1" data-add-cart>🛒 Add to Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡ Preview</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Brutalist UI Component Pack</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px">RH</div>
+              <span class="asset-card-creator-name">@rawhaus</span>
+            </div>
+            <span class="text-price">$59</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★☆</div>
+            <span class="asset-card-downloads">↓ 1.1k</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset 3 — Wide -->
+      <div class="asset-card"
+        data-asset-id="f3" data-asset-title="Mountain Serenity" data-asset-price="24" data-asset-category="Photography" data-asset-emoji="🏔️" data-asset-creator="@altitude">
+        <div class="asset-card-thumb wide" style="background:linear-gradient(160deg,#0f2027,#203a43,#2c5364);">
+          🏔️
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">📷 Photo</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary btn-add-cart flex-1" data-add-cart>🛒 Add to Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡ Preview</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Mountain Serenity Series</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px">AL</div>
+              <span class="asset-card-creator-name">@altitude</span>
+            </div>
+            <span class="text-price">$24</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 5.7k</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset 4 — Tall -->
+      <div class="asset-card"
+        data-asset-id="f4" data-asset-title="Character Design Bundle" data-asset-price="79" data-asset-category="Illustrations" data-asset-emoji="🧝" data-asset-creator="@inkcraft">
+        <div class="asset-card-thumb tall" style="background:linear-gradient(135deg,#3a1c71,#d76d77,#ffaf7b);">
+          🧝
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">✏️ Illus.</span>
+            <span class="badge badge-coral">Best Seller</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary btn-add-cart flex-1" data-add-cart>🛒 Add to Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡ Preview</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Fantasy Character Design Bundle</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#3a1c71,#d76d77);">IC</div>
+              <span class="asset-card-creator-name">@inkcraft</span>
+            </div>
+            <span class="text-price">$79</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 8.3k</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset 5 -->
+      <div class="asset-card"
+        data-asset-id="f5" data-asset-title="Social Media Starter Kit" data-asset-price="34" data-asset-category="Templates" data-asset-emoji="📱" data-asset-creator="@gridmaster">
+        <div class="asset-card-thumb square" style="background:linear-gradient(135deg,#f857a6,#ff5858);">
+          📱
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">📐 Template</span>
+            <span class="badge badge-green">Popular</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary btn-add-cart flex-1" data-add-cart>🛒 Add to Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡ Preview</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Social Media Starter Kit</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#f857a6,#ff5858);">GM</div>
+              <span class="asset-card-creator-name">@gridmaster</span>
+            </div>
+            <span class="text-price">$34</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 12.1k</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset 6 — Tall -->
+      <div class="asset-card"
+        data-asset-id="f6" data-asset-title="Orchestral Score Pack" data-asset-price="49" data-asset-category="Audio" data-asset-emoji="🎻" data-asset-creator="@philharmonia">
+        <div class="asset-card-thumb wide" style="background:linear-gradient(135deg,#1a1040,#3b2d8e,#6c63ff);">
+          🎻
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">🎵 Audio</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary btn-add-cart flex-1" data-add-cart>🛒 Add to Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡ Preview</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Cinematic Orchestral Score Pack</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#3b2d8e,#6c63ff);">PH</div>
+              <span class="asset-card-creator-name">@philharmonia</span>
+            </div>
+            <span class="text-price">$49</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 3.2k</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset 7 -->
+      <div class="asset-card"
+        data-asset-id="f7" data-asset-title="Abstract Fluid Art" data-asset-price="18" data-asset-category="Graphics" data-asset-emoji="🌊" data-asset-creator="@fluidix">
+        <div class="asset-card-thumb" style="background:linear-gradient(135deg,#00b4db,#0083b0,#00d2ff);">
+          🌊
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">🎨 Graphics</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary btn-add-cart flex-1" data-add-cart>🛒 Add to Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡ Preview</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Abstract Fluid Art Pack</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#00b4db,#0083b0);">FX</div>
+              <span class="asset-card-creator-name">@fluidix</span>
+            </div>
+            <span class="text-price">$18</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★☆</div>
+            <span class="asset-card-downloads">↓ 4.9k</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset 8 — Tall -->
+      <div class="asset-card"
+        data-asset-id="f8" data-asset-title="Minimal Resume Pack" data-asset-price="22" data-asset-category="Templates" data-asset-emoji="📄" data-asset-creator="@cleantype">
+        <div class="asset-card-thumb tall" style="background:linear-gradient(160deg,#e8e8f0,#d8d8ec,#c8c8e0);">
+          📄
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">📐 Template</span>
+            <span class="badge badge-coral">Sale</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary btn-add-cart flex-1" data-add-cart>🛒 Add to Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡ Preview</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Minimal Resume Pack (10 styles)</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#6c63ff,#a8a4ff);">CT</div>
+              <span class="asset-card-creator-name">@cleantype</span>
+            </div>
+            <span class="text-price">$22</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 18.4k</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /masonry-grid -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TRENDING SECTION
+═══════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-surface);padding:var(--sp-10) 0;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <p class="text-meta" style="margin-bottom:4px;letter-spacing:0.06em;text-transform:uppercase;">🔥 This week</p>
+        <h2 class="text-h2">Trending Now</h2>
+      </div>
+      <a href="category.html" class="btn btn-ghost btn-sm">See all trending →</a>
+    </div>
+
+    <div class="carousel-section" data-carousel>
+      <button class="carousel-nav-btn carousel-nav-prev">←</button>
+      <div class="carousel-track-wrap">
+        <div class="carousel-track">
+
+          <div class="carousel-item"
+            data-asset-id="t1" data-asset-title="Dark Mode App UI" data-asset-price="69" data-asset-category="Templates" data-asset-emoji="📱" data-asset-creator="@uidark">
+            <div class="carousel-item-thumb" style="background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);">📱</div>
+            <div class="carousel-item-body">
+              <div class="carousel-item-title">Dark Mode App UI System</div>
+              <div class="carousel-item-meta">
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <div class="avatar" style="font-size:10px">UD</div>
+                  <span class="text-meta">@uidark</span>
+                </div>
+                <span class="text-price">$69</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;">
+                <div class="stars">★★★★★</div>
+                <span class="text-meta">↓ 6.2k</span>
+              </div>
+              <button class="btn btn-primary btn-sm w-full" style="margin-top:10px;" data-add-cart>+ Cart</button>
+            </div>
+          </div>
+
+          <div class="carousel-item"
+            data-asset-id="t2" data-asset-title="Lo-Fi Chill Pack" data-asset-price="29" data-asset-category="Audio" data-asset-emoji="🎧" data-asset-creator="@lowave">
+            <div class="carousel-item-thumb" style="background:linear-gradient(135deg,#2c1654,#4a2272,#6c63ff);">🎧</div>
+            <div class="carousel-item-body">
+              <div class="carousel-item-title">Lo-Fi Chill Music Pack (20 tracks)</div>
+              <div class="carousel-item-meta">
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#2c1654,#6c63ff)">LW</div>
+                  <span class="text-meta">@lowave</span>
+                </div>
+                <span class="text-price">$29</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;">
+                <div class="stars">★★★★★</div>
+                <span class="text-meta">↓ 9.1k</span>
+              </div>
+              <button class="btn btn-primary btn-sm w-full" style="margin-top:10px;" data-add-cart>+ Cart</button>
+            </div>
+          </div>
+
+          <div class="carousel-item"
+            data-asset-id="t3" data-asset-title="Drone City Footage" data-asset-price="99" data-asset-category="Videos" data-asset-emoji="🎬" data-asset-creator="@droneworks">
+            <div class="carousel-item-thumb" style="background:linear-gradient(135deg,#0a0a0f,#1a1a3e,#2a2a6e);">🎬</div>
+            <div class="carousel-item-body">
+              <div class="carousel-item-title">Cinematic Drone City Footage Pack</div>
+              <div class="carousel-item-meta">
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#1a1a3e,#2a2a6e)">DW</div>
+                  <span class="text-meta">@droneworks</span>
+                </div>
+                <span class="text-price">$99</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;">
+                <div class="stars">★★★★★</div>
+                <span class="text-meta">↓ 3.4k</span>
+              </div>
+              <button class="btn btn-primary btn-sm w-full" style="margin-top:10px;" data-add-cart>+ Cart</button>
+            </div>
+          </div>
+
+          <div class="carousel-item"
+            data-asset-id="t4" data-asset-title="Pastel Icon Set" data-asset-price="16" data-asset-category="Graphics" data-asset-emoji="🎀" data-asset-creator="@softpetal">
+            <div class="carousel-item-thumb" style="background:linear-gradient(135deg,#ffecd2,#fcb69f,#ff9a9e);">🎀</div>
+            <div class="carousel-item-body">
+              <div class="carousel-item-title">Pastel Illustrated Icon Set (500+)</div>
+              <div class="carousel-item-meta">
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#fcb69f,#ff9a9e)">SP</div>
+                  <span class="text-meta">@softpetal</span>
+                </div>
+                <span class="text-price">$16</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;">
+                <div class="stars">★★★★★</div>
+                <span class="text-meta">↓ 22.9k</span>
+              </div>
+              <button class="btn btn-primary btn-sm w-full" style="margin-top:10px;" data-add-cart>+ Cart</button>
+            </div>
+          </div>
+
+          <div class="carousel-item"
+            data-asset-id="t5" data-asset-title="Minimal Brand Kit" data-asset-price="45" data-asset-category="Templates" data-asset-emoji="🔲" data-asset-creator="@blanker">
+            <div class="carousel-item-thumb" style="background:linear-gradient(135deg,#f8f8ff,#e8e8f0,#d8d8ec);">🔲</div>
+            <div class="carousel-item-body">
+              <div class="carousel-item-title">Minimal Brand Identity Starter Kit</div>
+              <div class="carousel-item-meta">
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#6c63ff,#ff6584)">BK</div>
+                  <span class="text-meta">@blanker</span>
+                </div>
+                <span class="text-price">$45</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;">
+                <div class="stars">★★★★★</div>
+                <span class="text-meta">↓ 7.8k</span>
+              </div>
+              <button class="btn btn-primary btn-sm w-full" style="margin-top:10px;" data-add-cart>+ Cart</button>
+            </div>
+          </div>
+
+          <div class="carousel-item"
+            data-asset-id="t6" data-asset-title="Street Photo Series" data-asset-price="32" data-asset-category="Photography" data-asset-emoji="🏙️" data-asset-creator="@urblens">
+            <div class="carousel-item-thumb" style="background:linear-gradient(135deg,#232526,#414345,#5a5e64);">🏙️</div>
+            <div class="carousel-item-body">
+              <div class="carousel-item-title">Urban Street Photography Series</div>
+              <div class="carousel-item-meta">
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#232526,#414345)">UL</div>
+                  <span class="text-meta">@urblens</span>
+                </div>
+                <span class="text-price">$32</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;">
+                <div class="stars">★★★★☆</div>
+                <span class="text-meta">↓ 4.5k</span>
+              </div>
+              <button class="btn btn-primary btn-sm w-full" style="margin-top:10px;" data-add-cart>+ Cart</button>
+            </div>
+          </div>
+
+        </div><!-- /carousel-track -->
+      </div>
+      <button class="carousel-nav-btn carousel-nav-next">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PROMO BANNER
+═══════════════════════════════════════════════ -->
+<section class="section" style="padding:var(--sp-10) 0;">
+  <div class="container reveal">
+    <div style="
+      background: linear-gradient(135deg, rgba(108,99,255,0.15) 0%, rgba(255,101,132,0.15) 100%);
+      border: 1px solid rgba(108,99,255,0.25);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8) var(--sp-6);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    ">
+      <div style="position:absolute;top:-40%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(108,99,255,0.15) 0%,transparent 70%);border-radius:50%;filter:blur(40px);pointer-events:none;"></div>
+      <div style="position:relative;z-index:1;">
+        <div class="badge badge-coral" style="margin:0 auto var(--sp-2);width:fit-content;">🎉 Limited Offer</div>
+        <h2 class="text-h2" style="margin-bottom:var(--sp-2);">Unlock <span class="gradient-text">Unlimited Access</span></h2>
+        <p class="text-body" style="max-width:480px;margin:0 auto var(--sp-4);">
+          Get all 2M+ assets with a PixelVault Pro subscription. Starting at $19/month. Cancel anytime.
+        </p>
+        <div style="display:flex;gap:var(--sp-2);justify-content:center;flex-wrap:wrap;">
+          <a href="signin.html" class="btn btn-primary btn-lg">Start Free Trial</a>
+          <button class="btn btn-ghost btn-lg">View Plans</button>
+        </div>
+        <p style="font-size:12px;color:var(--text-tertiary);margin-top:var(--sp-2);">No credit card required · Cancel anytime</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <!-- Brand -->
+    <div>
+      <div class="navbar-logo" style="margin-bottom:var(--sp-2);">
+        <div class="navbar-logo-icon">⬡</div>
+        <span>PixelVault</span>
+      </div>
+      <p class="footer-brand-tagline">
+        The premium marketplace where exceptional creators and ambitious creatives meet. Quality over quantity, always.
+      </p>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Your email address" class="input-field" style="border-radius:var(--radius-pill);" />
+        <button class="btn btn-primary" style="border-radius:var(--radius-pill);white-space:nowrap;">Subscribe</button>
+      </div>
+      <div class="footer-social">
+        <div class="social-icon" title="Twitter">𝕏</div>
+        <div class="social-icon" title="Instagram">📸</div>
+        <div class="social-icon" title="Dribbble">🏀</div>
+        <div class="social-icon" title="Discord">💬</div>
+        <div class="social-icon" title="YouTube">▶</div>
+      </div>
+    </div>
+
+    <!-- Explore -->
+    <div>
+      <div class="footer-col-heading">Explore</div>
+      <ul class="footer-links">
+        <li><a href="category.html?cat=photography" class="footer-link">📷 Photography</a></li>
+        <li><a href="category.html?cat=graphics" class="footer-link">🎨 Graphics</a></li>
+        <li><a href="category.html?cat=illustrations" class="footer-link">✏️ Illustrations</a></li>
+        <li><a href="category.html?cat=templates" class="footer-link">📐 Templates</a></li>
+        <li><a href="category.html?cat=videos" class="footer-link">🎬 Videos</a></li>
+        <li><a href="category.html?cat=audio" class="footer-link">🎵 Audio</a></li>
+      </ul>
+    </div>
+
+    <!-- Creator -->
+    <div>
+      <div class="footer-col-heading">Creator</div>
+      <ul class="footer-links">
+        <li><a href="signin.html" class="footer-link">Start Selling</a></li>
+        <li><a href="#" class="footer-link">Creator Dashboard</a></li>
+        <li><a href="#" class="footer-link">Pricing Plans</a></li>
+        <li><a href="#" class="footer-link">Affiliate Program</a></li>
+        <li><a href="#" class="footer-link">Creator Blog</a></li>
+        <li><a href="#" class="footer-link">Success Stories</a></li>
+      </ul>
+    </div>
+
+    <!-- Legal -->
+    <div>
+      <div class="footer-col-heading">Company</div>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">About Us</a></li>
+        <li><a href="#" class="footer-link">Careers</a></li>
+        <li><a href="#" class="footer-link">Press</a></li>
+        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+        <li><a href="#" class="footer-link">Terms of Service</a></li>
+        <li><a href="#" class="footer-link">License Guide</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="text-meta">© 2025 PixelVault Inc. All rights reserved.</p>
+    <div class="footer-bottom-nav">
+      <a href="#" class="footer-link text-meta">Privacy</a>
+      <a href="#" class="footer-link text-meta">Terms</a>
+      <a href="#" class="footer-link text-meta">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     MOBILE BOTTOM NAV
+═══════════════════════════════════════════════ -->
+<nav class="mobile-nav">
+  <div class="mobile-nav-item active" data-page="home" onclick="window.location.href='index.html'">
+    <span class="mobile-nav-icon">🏠</span>
+    <span>Home</span>
+  </div>
+  <div class="mobile-nav-item" data-page="category" onclick="window.location.href='category.html'">
+    <span class="mobile-nav-icon">🔍</span>
+    <span>Browse</span>
+  </div>
+  <div class="mobile-nav-item" data-page="cart" onclick="window.location.href='cart.html'">
+    <span class="mobile-nav-icon">🛒</span>
+    <span>Cart</span>
+  </div>
+  <div class="mobile-nav-item" data-page="signin" onclick="window.location.href='signin.html'">
+    <span class="mobile-nav-icon">👤</span>
+    <span>Account</span>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     QUICK VIEW MODAL
+═══════════════════════════════════════════════ -->
+<div class="quick-view-modal" id="quick-view-modal">
+  <div class="quick-view-backdrop"></div>
+  <div class="quick-view-content" id="qv-content">
+    <button class="quick-view-close">✕</button>
+    <div style="text-align:center;margin-bottom:var(--sp-3);">
+      <div id="qv-emoji" style="font-size:64px;margin-bottom:var(--sp-2);">🖼️</div>
+      <h3 id="qv-title" class="text-h3" style="margin-bottom:6px;"></h3>
+      <span class="badge badge-accent" id="qv-category"></span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:var(--sp-2);background:var(--bg-elevated);border-radius:var(--radius-md);margin-bottom:var(--sp-3);">
+      <div>
+        <p class="text-meta">Creator</p>
+        <p id="qv-creator" style="font-weight:600;font-size:14px;color:var(--text-primary);margin-top:2px;"></p>
+      </div>
+      <div style="text-align:right;">
+        <p class="text-meta">Price</p>
+        <p id="qv-price" class="text-price-lg" style="margin-top:2px;"></p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2);">
+      <button class="btn btn-primary" data-add-cart>🛒 Add to Cart</button>
+      <a href="category.html" class="btn btn-ghost">View Similar →</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  // Hero search
+  document.getElementById('hero-search-btn')?.addEventListener('click', () => {
+    const query = document.getElementById('hero-search-input')?.value;
+    const cat = document.getElementById('hero-search-cat')?.value;
+    if (query) {
+      window.location.href = `category.html?q=${encodeURIComponent(query)}&cat=${cat}`;
+    }
+  });
+
+  document.getElementById('hero-search-input')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      document.getElementById('hero-search-btn')?.click();
+    }
+  });
+</script>
+</body>
+</html>

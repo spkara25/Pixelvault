@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse premium photography assets on PixelVault — high-resolution photos, editorial images, and visual stories from world-class photographers." />
+  <title>Photography — PixelVault Digital Asset Marketplace</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/category.css" />
+</head>
+<body class="page-wrapper">
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="navbar-logo-icon">⬡</div>
+      <span>PixelVault</span>
+    </a>
+    <div class="navbar-cats hide-mobile">
+      <a href="category.html?cat=photography" class="navbar-cat-pill active">📷 Photo</a>
+      <a href="category.html?cat=graphics"    class="navbar-cat-pill">🎨 Graphics</a>
+      <a href="category.html?cat=illustrations" class="navbar-cat-pill">✏️ Illustrations</a>
+      <a href="category.html?cat=templates"   class="navbar-cat-pill">📐 Templates</a>
+      <a href="category.html?cat=videos"      class="navbar-cat-pill">🎬 Videos</a>
+      <a href="category.html?cat=audio"       class="navbar-cat-pill">🎵 Audio</a>
+    </div>
+    <div class="navbar-actions">
+      <button class="navbar-icon-btn" data-search-open title="Search">🔍</button>
+      <a href="cart.html" class="navbar-icon-btn" style="text-decoration:none;" title="Cart">
+        🛒
+        <span class="cart-badge" id="cart-badge-nav" style="display:none;">0</span>
+      </a>
+      <div class="theme-toggle" data-theme-toggle id="theme-toggle"></div>
+      <div class="navbar-avatar" onclick="window.location.href='signin.html'">JD</div>
+    </div>
+  </div>
+</nav>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-backdrop"></div>
+  <div class="search-modal">
+    <div class="search-input-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-main-input" placeholder="Search photography assets…" id="search-main-input" />
+      <div class="search-kbd"><span class="kbd">Esc</span></div>
+    </div>
+    <div class="search-suggestions">
+      <h4>Popular in Photography</h4>
+      <div class="search-chips">
+        <button class="tag-chip search-chip">Aerial landscape</button>
+        <button class="tag-chip search-chip">Street portrait</button>
+        <button class="tag-chip search-chip">Golden hour</button>
+        <button class="tag-chip search-chip">Architectural</button>
+        <button class="tag-chip search-chip">Abstract macro</button>
+        <button class="tag-chip search-chip">Black & white</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY HERO -->
+<div class="cat-hero">
+  <div class="container">
+    <!-- Breadcrumb -->
+    <div class="cat-breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="cat-breadcrumb-sep">›</span>
+      <span>Photography</span>
+    </div>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-3);">
+      <div>
+        <h1 class="cat-hero-title">📷 Photography</h1>
+        <p class="cat-hero-desc">
+          High-resolution photos, editorial images, and breathtaking visual stories from 8,000+ world-class photographers.
+        </p>
+      </div>
+      <div style="display:flex;gap:var(--sp-2);align-items:center;">
+        <span class="text-meta" id="results-count">248</span>
+        <span class="text-meta">assets found</span>
+      </div>
+    </div>
+
+    <!-- Filter chips -->
+    <div class="filter-chips-row">
+      <button class="filter-chip active" data-filter="orientation">
+        ⇄ Orientation <span class="filter-chip-arrow">▾</span>
+      </button>
+      <button class="filter-chip" data-filter="color">
+        🎨 Color <span class="filter-chip-arrow">▾</span>
+      </button>
+      <button class="filter-chip" data-filter="price">
+        💰 Price Range <span class="filter-chip-arrow">▾</span>
+      </button>
+      <button class="filter-chip" data-filter="license">
+        📜 License Type <span class="filter-chip-arrow">▾</span>
+      </button>
+      <button class="filter-chip" data-filter="resolution">
+        🔍 Resolution <span class="filter-chip-arrow">▾</span>
+      </button>
+      <button class="filter-chip" data-filter="style">
+        ✨ Style <span class="filter-chip-arrow">▾</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="cat-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="filter-sidebar" id="filter-sidebar">
+    <div class="filter-sidebar-header">
+      <h3 style="font-size:16px;font-weight:700;">Filters</h3>
+      <button class="filter-clear" id="filter-clear">Clear all</button>
+    </div>
+
+    <!-- Style -->
+    <div class="filter-section open">
+      <div class="filter-section-header">
+        <span>Style</span>
+        <span class="filter-section-arrow">▾</span>
+      </div>
+      <div class="filter-options">
+        <div class="filter-option" data-asset-category="editorial">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Editorial</span>
+          </div>
+          <span class="filter-option-count">84</span>
+        </div>
+        <div class="filter-option" data-asset-category="landscape">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Landscape</span>
+          </div>
+          <span class="filter-option-count">63</span>
+        </div>
+        <div class="filter-option" data-asset-category="portrait">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Portrait</span>
+          </div>
+          <span class="filter-option-count">41</span>
+        </div>
+        <div class="filter-option" data-asset-category="abstract">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Abstract</span>
+          </div>
+          <span class="filter-option-count">38</span>
+        </div>
+        <div class="filter-option" data-asset-category="street">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Street</span>
+          </div>
+          <span class="filter-option-count">22</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Orientation -->
+    <div class="filter-section open">
+      <div class="filter-section-header">
+        <span>Orientation</span>
+        <span class="filter-section-arrow">▾</span>
+      </div>
+      <div class="filter-options">
+        <div class="filter-option">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Landscape (16:9)</span>
+          </div>
+          <span class="filter-option-count">110</span>
+        </div>
+        <div class="filter-option">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Portrait (9:16)</span>
+          </div>
+          <span class="filter-option-count">78</span>
+        </div>
+        <div class="filter-option">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Square (1:1)</span>
+          </div>
+          <span class="filter-option-count">60</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Price Range -->
+    <div class="filter-section">
+      <div class="filter-section-header">
+        <span>Price Range</span>
+        <span class="filter-section-arrow">▾</span>
+      </div>
+      <div class="filter-options">
+        <div class="price-range-wrap">
+          <div class="price-range-inputs">
+            <input type="number" class="price-range-input" placeholder="$0" min="0" id="price-min" />
+            <span class="price-range-sep">–</span>
+            <input type="number" class="price-range-input" placeholder="$500" max="500" id="price-max" />
+          </div>
+          <div class="filter-option">
+            <div class="filter-option-left">
+              <div class="filter-checkbox checked"></div>
+              <span class="filter-option-label">Under $25</span>
+            </div>
+            <span class="filter-option-count">92</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-option-left">
+              <div class="filter-checkbox"></div>
+              <span class="filter-option-label">$25 – $75</span>
+            </div>
+            <span class="filter-option-count">87</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-option-left">
+              <div class="filter-checkbox"></div>
+              <span class="filter-option-label">$75 – $150</span>
+            </div>
+            <span class="filter-option-count">39</span>
+          </div>
+          <div class="filter-option">
+            <div class="filter-option-left">
+              <div class="filter-checkbox"></div>
+              <span class="filter-option-label">$150+</span>
+            </div>
+            <span class="filter-option-count">30</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- License -->
+    <div class="filter-section">
+      <div class="filter-section-header">
+        <span>License Type</span>
+        <span class="filter-section-arrow">▾</span>
+      </div>
+      <div class="filter-options">
+        <div class="filter-option">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Personal</span>
+          </div>
+          <span class="filter-option-count">248</span>
+        </div>
+        <div class="filter-option">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Commercial</span>
+          </div>
+          <span class="filter-option-count">186</span>
+        </div>
+        <div class="filter-option">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Extended</span>
+          </div>
+          <span class="filter-option-count">94</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resolution -->
+    <div class="filter-section">
+      <div class="filter-section-header">
+        <span>Resolution</span>
+        <span class="filter-section-arrow">▾</span>
+      </div>
+      <div class="filter-options">
+        <div class="filter-option">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">4K (3840×2160)</span>
+          </div>
+          <span class="filter-option-count">142</span>
+        </div>
+        <div class="filter-option">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">Full HD (1920×1080)</span>
+          </div>
+          <span class="filter-option-count">80</span>
+        </div>
+        <div class="filter-option">
+          <div class="filter-option-left">
+            <div class="filter-checkbox"></div>
+            <span class="filter-option-label">RAW Files</span>
+          </div>
+          <span class="filter-option-count">62</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- Sort Bar -->
+    <div class="sort-bar">
+      <div class="sort-bar-left">
+        <span class="results-count"><strong id="results-count-main">248</strong> results</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <div class="segmented-control">
+          <button class="seg-btn active" data-sort="popular">🔥 Popular</button>
+          <button class="seg-btn" data-sort="newest">✨ Newest</button>
+          <button class="seg-btn" data-sort="price-asc">$ Low</button>
+          <button class="seg-btn" data-sort="price-desc">$ High</button>
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="grid" title="Grid view">⊞</button>
+          <button class="view-btn" data-view="list" title="List view">☰</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assets Grid — Masonry -->
+    <div class="masonry-grid" id="assets-grid">
+
+      <div class="asset-card" data-asset-id="c1" data-asset-title="Misty Mountain Dawn" data-asset-price="34" data-asset-category="landscape" data-asset-emoji="🌄" data-asset-creator="@alpinecap">
+        <div class="asset-card-thumb tall" style="background:linear-gradient(160deg,#2c3e50,#3498db,#bdc3c7);">
+          🌄
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">Landscape</span>
+            <span class="badge badge-coral">🔥</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary flex-1" data-add-cart>🛒 Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Misty Mountain Dawn</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px">AC</div>
+              <span class="asset-card-creator-name">@alpinecap</span>
+            </div>
+            <span class="text-price">$34</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 3.1k</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card" data-asset-id="c2" data-asset-title="Urban Noir Series" data-asset-price="48" data-asset-category="street" data-asset-emoji="🌆" data-asset-creator="@shadowlens">
+        <div class="asset-card-thumb" style="background:linear-gradient(135deg,#1c1c1c,#2d2d2d,#3d3d3d);">
+          🌆
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">Street</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary flex-1" data-add-cart>🛒 Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Urban Noir Series (30 photos)</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#1c1c1c,#4d4d4d)">SL</div>
+              <span class="asset-card-creator-name">@shadowlens</span>
+            </div>
+            <span class="text-price">$48</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 2.7k</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card" data-asset-id="c3" data-asset-title="Golden Desert Dunes" data-asset-price="29" data-asset-category="landscape" data-asset-emoji="🏜️" data-asset-creator="@sandstorm">
+        <div class="asset-card-thumb wide" style="background:linear-gradient(135deg,#f09819,#edde5d,#f7971e);">
+          🏜️
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">Landscape</span>
+            <span class="badge badge-green">New</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary flex-1" data-add-cart>🛒 Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Golden Desert Dunes Collection</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#f09819,#f7971e)">SS</div>
+              <span class="asset-card-creator-name">@sandstorm</span>
+            </div>
+            <span class="text-price">$29</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★☆</div>
+            <span class="asset-card-downloads">↓ 1.8k</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card" data-asset-id="c4" data-asset-title="Fog & Silence" data-asset-price="22" data-asset-category="abstract" data-asset-emoji="🌫️" data-asset-creator="@ethereal">
+        <div class="asset-card-thumb tall" style="background:linear-gradient(160deg,#d3cce3,#e9e4f0,#bdc3c7);">
+          🌫️
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">Abstract</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary flex-1" data-add-cart>🛒 Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Fog & Silence — Minimalist Scenes</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#d3cce3,#bdc3c7)">ET</div>
+              <span class="asset-card-creator-name">@ethereal</span>
+            </div>
+            <span class="text-price">$22</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 4.6k</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card" data-asset-id="c5" data-asset-title="Ocean Depths" data-asset-price="41" data-asset-category="abstract" data-asset-emoji="🌊" data-asset-creator="@deepsea">
+        <div class="asset-card-thumb" style="background:linear-gradient(160deg,#005c97,#363795,#1a1a3e);">
+          🌊
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">Abstract</span>
+            <span class="badge badge-coral">Trending</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary flex-1" data-add-cart>🛒 Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Ocean Depths Underwater Series</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#005c97,#363795)">DS</div>
+              <span class="asset-card-creator-name">@deepsea</span>
+            </div>
+            <span class="text-price">$41</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 5.2k</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card" data-asset-id="c6" data-asset-title="Autumn Forest" data-asset-price="19" data-asset-category="landscape" data-asset-emoji="🍂" data-asset-creator="@autumnhue">
+        <div class="asset-card-thumb square" style="background:linear-gradient(135deg,#c94b4b,#4b134f,#e96c43);">
+          🍂
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">Landscape</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary flex-1" data-add-cart>🛒 Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Autumn Forest Color Study</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#c94b4b,#e96c43)">AH</div>
+              <span class="asset-card-creator-name">@autumnhue</span>
+            </div>
+            <span class="text-price">$19</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★☆</div>
+            <span class="asset-card-downloads">↓ 7.3k</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card" data-asset-id="c7" data-asset-title="Portrait Stories" data-asset-price="55" data-asset-category="portrait" data-asset-emoji="👤" data-asset-creator="@facecraft">
+        <div class="asset-card-thumb tall" style="background:linear-gradient(135deg,#2c3e50,#34495e,#4a6278);">
+          👤
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">Portrait</span>
+            <span class="badge badge-green">Best Seller</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary flex-1" data-add-cart>🛒 Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Portrait Stories — Human Expressions</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#2c3e50,#4a6278)">FC</div>
+              <span class="asset-card-creator-name">@facecraft</span>
+            </div>
+            <span class="text-price">$55</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 9.1k</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card" data-asset-id="c8" data-asset-title="Cherry Blossom Study" data-asset-price="26" data-asset-category="abstract" data-asset-emoji="🌸" data-asset-creator="@sakuravision">
+        <div class="asset-card-thumb" style="background:linear-gradient(135deg,#f8cdda,#1d2b64,#f093fb);">
+          🌸
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">Abstract</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary flex-1" data-add-cart>🛒 Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Cherry Blossom — Macro Study</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#f8cdda,#f093fb)">SV</div>
+              <span class="asset-card-creator-name">@sakuravision</span>
+            </div>
+            <span class="text-price">$26</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 6.8k</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-card" data-asset-id="c9" data-asset-title="Neon City Nights" data-asset-price="37" data-asset-category="street" data-asset-emoji="🌃" data-asset-creator="@nightframe">
+        <div class="asset-card-thumb wide" style="background:linear-gradient(135deg,#0a0a1a,#1a0a2e,#ff006e);">
+          🌃
+          <div class="asset-card-badges">
+            <span class="badge badge-accent">Street</span>
+            <span class="badge badge-coral">🔥 Hot</span>
+          </div>
+          <div class="asset-card-overlay">
+            <button class="btn btn-sm btn-primary flex-1" data-add-cart>🛒 Cart</button>
+            <button class="btn btn-sm btn-ghost" data-quick-view style="color:#fff;border-color:rgba(255,255,255,0.3);">⚡</button>
+          </div>
+        </div>
+        <div class="asset-card-body">
+          <div class="text-card-title">Neon City Nights — Tokyo Series</div>
+          <div class="asset-card-meta">
+            <div class="asset-card-creator">
+              <div class="avatar" style="font-size:10px;background:linear-gradient(135deg,#1a0a2e,#ff006e)">NF</div>
+              <span class="asset-card-creator-name">@nightframe</span>
+            </div>
+            <span class="text-price">$37</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+            <div class="stars">★★★★★</div>
+            <span class="asset-card-downloads">↓ 11.4k</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /assets-grid -->
+
+    <!-- Load More -->
+    <div class="load-more-wrap">
+      <button class="btn btn-ghost btn-lg" id="load-more-btn">
+        Load More Assets ↓
+      </button>
+    </div>
+  </main>
+</div><!-- /cat-layout -->
+
+<!-- QUICK VIEW MODAL -->
+<div class="quick-view-modal" id="quick-view-modal">
+  <div class="quick-view-backdrop"></div>
+  <div class="quick-view-content" id="qv-content">
+    <button class="quick-view-close">✕</button>
+    <div style="text-align:center;margin-bottom:var(--sp-3);">
+      <div id="qv-emoji" style="font-size:56px;margin-bottom:var(--sp-2);">📷</div>
+      <h3 id="qv-title" class="text-h3" style="margin-bottom:6px;"></h3>
+      <span class="badge badge-accent" id="qv-category"></span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:var(--sp-2);background:var(--bg-elevated);border-radius:var(--radius-md);margin-bottom:var(--sp-3);">
+      <div>
+        <p class="text-meta">Creator</p>
+        <p id="qv-creator" style="font-weight:600;font-size:14px;color:var(--text-primary);margin-top:2px;"></p>
+      </div>
+      <div style="text-align:right;">
+        <p class="text-meta">Price</p>
+        <p id="qv-price" class="text-price-lg" style="margin-top:2px;"></p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2);">
+      <button class="btn btn-primary" data-add-cart>🛒 Add to Cart</button>
+      <a href="cart.html" class="btn btn-ghost">View Cart →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Filter Overlay (mobile) -->
+<div id="filter-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:140;backdrop-filter:blur(4px);"></div>
+
+<!-- Mobile Filter FAB -->
+<button class="filter-fab" id="filter-fab" title="Filters">
+  ⚙
+</button>
+
+<!-- Mobile Bottom Nav -->
+<nav class="mobile-nav">
+  <div class="mobile-nav-item" data-page="home" onclick="window.location.href='index.html'">
+    <span class="mobile-nav-icon">🏠</span><span>Home</span>
+  </div>
+  <div class="mobile-nav-item active" data-page="category" onclick="window.location.href='category.html'">
+    <span class="mobile-nav-icon">🔍</span><span>Browse</span>
+  </div>
+  <div class="mobile-nav-item" data-page="cart" onclick="window.location.href='cart.html'">
+    <span class="mobile-nav-icon">🛒</span><span>Cart</span>
+  </div>
+  <div class="mobile-nav-item" data-page="signin" onclick="window.location.href='signin.html'">
+    <span class="mobile-nav-icon">👤</span><span>Account</span>
+  </div>
+</nav>
+
+<script src="js/main.js"></script>
+<script src="js/category.js"></script>
+<script>
+  // Hide filter overlay initially
+  const overlay = document.getElementById('filter-overlay');
+  if (overlay) overlay.style.display = 'block';
+  if (overlay) overlay.style.opacity = '0';
+  if (overlay) overlay.style.pointerEvents = 'none';
+  if (overlay) overlay.style.transition = 'opacity 0.25s';
+
+  document.getElementById('filter-overlay')?.addEventListener('click', () => {
+    document.getElementById('filter-sidebar')?.classList.remove('mobile-open');
+    const o = document.getElementById('filter-overlay');
+    o.style.opacity = '0';
+    o.style.pointerEvents = 'none';
+  });
+
+  document.getElementById('filter-fab')?.addEventListener('click', () => {
+    const sidebar = document.getElementById('filter-sidebar');
+    const o = document.getElementById('filter-overlay');
+    if (sidebar.classList.contains('mobile-open')) {
+      sidebar.classList.remove('mobile-open');
+      o.style.opacity = '0';
+      o.style.pointerEvents = 'none';
+    } else {
+      sidebar.classList.add('mobile-open');
+      o.style.opacity = '1';
+      o.style.pointerEvents = 'all';
+    }
+  });
+
+  document.getElementById('filter-clear')?.addEventListener('click', () => {
+    document.querySelectorAll('.filter-checkbox').forEach(cb => cb.classList.remove('checked'));
+    document.querySelectorAll('.asset-card').forEach(card => {
+      card.style.opacity = '1';
+      card.style.pointerEvents = '';
+    });
+  });
+</script>
+</body>
+</html>

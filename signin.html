@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Sign in or create your PixelVault account. Join 50,000+ creators and access 2M+ premium digital assets." />
+  <title>Sign In — PixelVault</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/payment.css" />
+</head>
+
+<body style="overflow:hidden;">
+
+  <div class="auth-page">
+
+    <!-- ═══════════════════════════════════════════════
+       LEFT PANEL — Brand Visual
+  ═══════════════════════════════════════════════ -->
+    <div class="auth-brand-panel">
+      <!-- Gradient background -->
+      <div class="auth-brand-bg"></div>
+
+      <!-- Ambient glows -->
+      <div class="auth-brand-glow-1"></div>
+      <div class="auth-brand-glow-2"></div>
+
+      <!-- Particles -->
+      <div class="auth-particles" id="auth-particles"></div>
+
+      <!-- Floating asset card previews -->
+      <div class="auth-floating-cards">
+        <div class="auth-float-card auth-float-card-1">
+          <div class="auth-float-thumb" style="background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);">🌌</div>
+          <div class="auth-float-title">Aurora Dreams Collection</div>
+          <div class="auth-float-price">$29</div>
+        </div>
+        <div class="auth-float-card auth-float-card-2">
+          <div class="auth-float-thumb" style="background:linear-gradient(135deg,#1a0533,#6c63ff,#ff6584);">⚡</div>
+          <div class="auth-float-title">Neon Glitch UI Kit</div>
+          <div class="auth-float-price">$49</div>
+        </div>
+      </div>
+
+      <!-- Brand Content -->
+      <div class="auth-brand-content">
+        <div class="auth-brand-logo">
+          <div class="auth-brand-logo-icon">⬡</div>
+          PixelVault
+        </div>
+
+        <h2 class="auth-brand-headline">
+          Join the<br />
+          <span
+            style="background:linear-gradient(135deg,#6C63FF,#FF6584);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Creative
+            Elite</span>
+        </h2>
+
+        <p class="auth-brand-sub">
+          Discover, collect, and sell exceptional digital assets alongside the world's most talented creators.
+        </p>
+
+        <!-- Stats row -->
+        <div class="auth-brand-stats">
+          <div>
+            <div class="auth-brand-stat-num">50k+</div>
+            <div class="auth-brand-stat-label">Creators</div>
+          </div>
+          <div>
+            <div class="auth-brand-stat-num">2M+</div>
+            <div class="auth-brand-stat-label">Assets</div>
+          </div>
+          <div>
+            <div class="auth-brand-stat-num">$4.2M</div>
+            <div class="auth-brand-stat-label">Paid out</div>
+          </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div
+          style="margin-top:var(--sp-4);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);padding:var(--sp-2) var(--sp-3);">
+          <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;font-style:italic;margin-bottom:10px;">
+            "PixelVault completely changed how I monetise my creative work. First sale within 24 hours of uploading."
+          </p>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div
+              style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6c63ff,#ff6584);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;">
+              MK</div>
+            <div>
+              <p style="font-size:12px;color:rgba(255,255,255,0.8);font-weight:600;">@mkowalski</p>
+              <p style="font-size:11px;color:rgba(255,255,255,0.4);">Visual Designer · Warsaw</p>
+            </div>
+            <div class="stars" style="margin-left:auto;">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /auth-brand-panel -->
+
+    <!-- ═══════════════════════════════════════════════
+       RIGHT PANEL — Auth Form
+  ═══════════════════════════════════════════════ -->
+    <div class="auth-form-panel">
+      <div class="auth-form-inner">
+
+        <!-- Logo (mobile) -->
+        <div class="auth-brand-logo show-mobile-only" style="margin-bottom:var(--sp-4);justify-content:center;">
+          <div class="auth-brand-logo-icon" style="width:32px;height:32px;font-size:16px;">⬡</div>
+          PixelVault
+        </div>
+
+        <!-- Toggle between Sign In / Sign Up -->
+        <div
+          style="display:flex;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:4px;margin-bottom:var(--sp-4);"
+          id="auth-mode-toggle">
+          <button class="seg-btn active" id="btn-signin" style="flex:1;">Sign In</button>
+          <button class="seg-btn" id="btn-signup" style="flex:1;">Create Account</button>
+        </div>
+
+        <!-- SIGN IN FORM -->
+        <div id="form-signin">
+          <h1 class="auth-form-title">Welcome back</h1>
+          <p class="auth-form-sub">Sign in to access your assets and downloads.</p>
+
+          <!-- OAuth buttons -->
+          <div class="oauth-buttons">
+            <button class="oauth-btn" id="google-btn">
+              <span class="oauth-btn-icon">G</span>
+              Continue with Google
+            </button>
+            <button class="oauth-btn" id="github-btn">
+              <span class="oauth-btn-icon">⌥</span>
+              Continue with GitHub
+            </button>
+          </div>
+
+          <div class="auth-divider">
+            <div class="auth-divider-line"></div>
+            <span class="auth-divider-text">or sign in with email</span>
+            <div class="auth-divider-line"></div>
+          </div>
+
+          <form id="signin-form" novalidate>
+            <div class="auth-form-fields">
+              <div class="float-field">
+                <input type="email" class="float-input" id="signin-email" placeholder=" " autocomplete="email"
+                  required />
+                <label class="float-label" for="signin-email">Email Address</label>
+                <span class="float-icon">✉</span>
+              </div>
+
+              <div class="float-field">
+                <input type="password" class="float-input" id="signin-password" placeholder=" "
+                  autocomplete="current-password" required />
+                <label class="float-label" for="signin-password">Password</label>
+                <button type="button" class="float-icon" id="toggle-password"
+                  style="cursor:pointer;background:none;border:none;font-size:16px;"
+                  title="Show/hide password">👁</button>
+              </div>
+            </div>
+
+            <a class="forgot-link" id="forgot-link">Forgot your password?</a>
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg submit-btn" id="signin-btn">
+              <span class="btn-text">Sign In to PixelVault</span>
+              <div class="spinner"></div>
+            </button>
+          </form>
+
+          <p class="auth-switch" style="margin-top:var(--sp-3);">
+            New to PixelVault? <a id="switch-to-signup">Create a free account →</a>
+          </p>
+        </div>
+
+        <!-- SIGN UP FORM -->
+        <div id="form-signup" style="display:none;">
+          <h1 class="auth-form-title">Start creating</h1>
+          <p class="auth-form-sub">Join 50,000+ creators on PixelVault. Free forever.</p>
+
+          <div class="oauth-buttons">
+            <button class="oauth-btn">
+              <span class="oauth-btn-icon">G</span>
+              Sign up with Google
+            </button>
+            <button class="oauth-btn">
+              <span class="oauth-btn-icon">⌥</span>
+              Sign up with GitHub
+            </button>
+          </div>
+
+          <div class="auth-divider">
+            <div class="auth-divider-line"></div>
+            <span class="auth-divider-text">or create with email</span>
+            <div class="auth-divider-line"></div>
+          </div>
+
+          <form id="signup-form" novalidate>
+            <div class="auth-form-fields">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-1);">
+                <div class="float-field" style="margin-bottom:0;">
+                  <input type="text" class="float-input" id="signup-first" placeholder=" " autocomplete="given-name" />
+                  <label class="float-label" for="signup-first">First Name</label>
+                </div>
+                <div class="float-field" style="margin-bottom:0;">
+                  <input type="text" class="float-input" id="signup-last" placeholder=" " autocomplete="family-name" />
+                  <label class="float-label" for="signup-last">Last Name</label>
+                </div>
+              </div>
+
+              <div class="float-field">
+                <input type="email" class="float-input" id="signup-email" placeholder=" " autocomplete="email"
+                  required />
+                <label class="float-label" for="signup-email">Email Address</label>
+                <span class="float-icon">✉</span>
+              </div>
+
+              <div class="float-field">
+                <input type="password" class="float-input" id="signup-password" placeholder=" "
+                  autocomplete="new-password" required />
+                <label class="float-label" for="signup-password">Create Password</label>
+                <button type="button" class="float-icon" id="toggle-signup-pw"
+                  style="cursor:pointer;background:none;border:none;font-size:16px;">👁</button>
+              </div>
+
+              <!-- Password strength indicator -->
+              <div id="pw-strength-wrap" style="display:none;">
+                <div style="display:flex;gap:4px;margin-bottom:4px;">
+                  <div class="pw-bar"
+                    style="flex:1;height:3px;border-radius:2px;background:var(--border-medium);transition:background 0.3s;">
+                  </div>
+                  <div class="pw-bar"
+                    style="flex:1;height:3px;border-radius:2px;background:var(--border-medium);transition:background 0.3s;">
+                  </div>
+                  <div class="pw-bar"
+                    style="flex:1;height:3px;border-radius:2px;background:var(--border-medium);transition:background 0.3s;">
+                  </div>
+                  <div class="pw-bar"
+                    style="flex:1;height:3px;border-radius:2px;background:var(--border-medium);transition:background 0.3s;">
+                  </div>
+                </div>
+                <p id="pw-strength-label" style="font-size:11px;color:var(--text-tertiary);"></p>
+              </div>
+
+              <div class="float-field">
+                <input type="text" class="float-input" id="signup-handle" placeholder=" " />
+                <label class="float-label" for="signup-handle">Creator Handle (optional)</label>
+                <span class="float-icon" style="font-size:13px;color:var(--text-tertiary);">@</span>
+              </div>
+            </div>
+
+            <!-- Terms -->
+            <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:var(--sp-3);">
+              <input type="checkbox" id="terms-check" required
+                style="margin-top:3px;width:16px;height:16px;accent-color:var(--accent-primary);flex-shrink:0;" />
+              <label for="terms-check"
+                style="font-size:12px;color:var(--text-secondary);line-height:1.5;cursor:pointer;">
+                I agree to the <a href="#" style="color:var(--accent-primary);">Terms of Service</a> and
+                <a href="#" style="color:var(--accent-primary);">Privacy Policy</a>. I understand PixelVault uses my
+                data to improve services.
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg submit-btn" id="signup-btn">
+              <span class="btn-text">Create Free Account →</span>
+              <div class="spinner"></div>
+            </button>
+          </form>
+
+          <p class="auth-switch" style="margin-top:var(--sp-3);">
+            Already have an account? <a id="switch-to-signin">Sign in →</a>
+          </p>
+        </div>
+
+        <!-- Features row -->
+        <div style="margin-top:var(--sp-4);display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;">
+          <div style="padding:10px 6px;">
+            <div style="font-size:20px;margin-bottom:4px;">⚡</div>
+            <div style="font-size:11px;font-weight:600;color:var(--text-secondary);">Instant downloads</div>
+          </div>
+          <div style="padding:10px 6px;">
+            <div style="font-size:20px;margin-bottom:4px;">🔒</div>
+            <div style="font-size:11px;font-weight:600;color:var(--text-secondary);">Secure & private</div>
+          </div>
+          <div style="padding:10px 6px;">
+            <div style="font-size:20px;margin-bottom:4px;">💰</div>
+            <div style="font-size:11px;font-weight:600;color:var(--text-secondary);">Free to join</div>
+          </div>
+        </div>
+
+        <!-- Theme toggle -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:var(--sp-3);">
+          <span data-theme-icon style="font-size:14px;">🌙</span>
+          <div class="theme-toggle" data-theme-toggle id="theme-toggle" style="width:40px;height:22px;"></div>
+          <a href="index.html" style="font-size:12px;color:var(--text-tertiary);">← Back to PixelVault</a>
+        </div>
+
+      </div><!-- /auth-form-inner -->
+    </div><!-- /auth-form-panel -->
+  </div><!-- /auth-page -->
+
+  <!-- Forgot Password Modal -->
+  <div id="forgot-modal"
+    style="display:none;position:fixed;inset:0;z-index:400;background:rgba(5,5,10,0.8);backdrop-filter:blur(8px);align-items:center;justify-content:center;">
+    <div
+      style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:var(--sp-4);max-width:380px;width:90%;box-shadow:var(--shadow-lg);animation:scaleIn 0.3s var(--ease-spring);">
+      <div style="text-align:center;margin-bottom:var(--sp-3);">
+        <div style="font-size:40px;margin-bottom:var(--sp-2);">🔐</div>
+        <h3
+          style="font-family:var(--font-display);font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-bottom:6px;">
+          Reset Password</h3>
+        <p style="font-size:13px;color:var(--text-secondary);">Enter your email and we'll send a reset link.</p>
+      </div>
+      <div class="float-field">
+        <input type="email" class="float-input" id="forgot-email" placeholder=" " />
+        <label class="float-label" for="forgot-email">Email Address</label>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:var(--sp-2);">
+        <button class="btn btn-primary" id="forgot-submit">Send Reset Link</button>
+        <button class="btn btn-ghost" id="forgot-close">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ─── Form Mode Toggle ──────────────────────────────
+    const formSignin = document.getElementById('form-signin');
+    const formSignup = document.getElementById('form-signup');
+    const btnSignin = document.getElementById('btn-signin');
+    const btnSignup = document.getElementById('btn-signup');
+
+    function showSignin() {
+      formSignin.style.display = '';
+      formSignup.style.display = 'none';
+      btnSignin.classList.add('active');
+      btnSignup.classList.remove('active');
+      document.title = 'Sign In — PixelVault';
+    }
+
+    function showSignup() {
+      formSignin.style.display = 'none';
+      formSignup.style.display = '';
+      btnSignin.classList.remove('active');
+      btnSignup.classList.add('active');
+      document.title = 'Create Account — PixelVault';
+    }
+
+    btnSignin.addEventListener('click', showSignin);
+    btnSignup.addEventListener('click', showSignup);
+    document.getElementById('switch-to-signup')?.addEventListener('click', showSignup);
+    document.getElementById('switch-to-signin')?.addEventListener('click', showSignin);
+
+    // ─── Password Visibility Toggle ────────────────────
+    function makePasswordToggle(inputId, btnId) {
+      const input = document.getElementById(inputId);
+      const btn = document.getElementById(btnId);
+      if (!input || !btn) return;
+      btn.addEventListener('click', () => {
+        const show = input.type === 'password';
+        input.type = show ? 'text' : 'password';
+        btn.textContent = show ? '🙈' : '👁';
+      });
+    }
+    makePasswordToggle('signin-password', 'toggle-password');
+    makePasswordToggle('signup-password', 'toggle-signup-pw');
+
+    // ─── Password Strength ─────────────────────────────
+    const pwInput = document.getElementById('signup-password');
+    const pwWrap = document.getElementById('pw-strength-wrap');
+    const pwLabel = document.getElementById('pw-strength-label');
+    const pwBars = document.querySelectorAll('.pw-bar');
+
+    const pwStrengthColors = ['#ef4444', '#f59e0b', '#10b981', '#6c63ff'];
+    const pwStrengthLabels = ['Too short', 'Weak — add numbers', 'Good — add symbols', 'Strong password ✓'];
+
+    if (pwInput) {
+      pwInput.addEventListener('input', () => {
+        const val = pwInput.value;
+        if (!val) { pwWrap.style.display = 'none'; return; }
+        pwWrap.style.display = 'block';
+
+        let score = 0;
+        if (val.length >= 8) score++;
+        if (/[0-9]/.test(val)) score++;
+        if (/[^a-zA-Z0-9]/.test(val)) score++;
+        if (val.length >= 12) score++;
+
+        pwBars.forEach((bar, i) => {
+          bar.style.background = i < score ? pwStrengthColors[score - 1] : 'var(--border-medium)';
+        });
+        pwLabel.textContent = pwStrengthLabels[score - 1] || 'Too short';
+        pwLabel.style.color = pwStrengthColors[score - 1] || 'var(--text-tertiary)';
+      });
+    }
+
+    // ─── Form Submit — Sign In ─────────────────────────
+    document.getElementById('signin-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('signin-btn');
+      btn.classList.add('loading');
+
+      await new Promise(r => setTimeout(r, 1500));
+      btn.classList.remove('loading');
+
+      // Mock: redirect to home on success
+      window.location.href = 'index.html';
+    });
+
+    // ─── Form Submit — Sign Up ─────────────────────────
+    document.getElementById('signup-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const termsCheck = document.getElementById('terms-check');
+      if (!termsCheck.checked) {
+        termsCheck.style.outline = '2px solid var(--accent-coral)';
+        return;
+      }
+      const btn = document.getElementById('signup-btn');
+      btn.classList.add('loading');
+
+      await new Promise(r => setTimeout(r, 1800));
+      btn.classList.remove('loading');
+      btn.innerHTML = '<span class="btn-text">✓ Account Created! Redirecting…</span>';
+      btn.style.background = '#34D399';
+
+      setTimeout(() => { window.location.href = 'index.html'; }, 1200);
+    });
+
+    // ─── Forgot Password ───────────────────────────────
+    const forgotModal = document.getElementById('forgot-modal');
+    const forgotLink = document.getElementById('forgot-link');
+    const forgotClose = document.getElementById('forgot-close');
+    const forgotSubmit = document.getElementById('forgot-submit');
+
+    forgotLink?.addEventListener('click', (e) => {
+      e.preventDefault();
+      forgotModal.style.display = 'flex';
+    });
+    forgotClose?.addEventListener('click', () => { forgotModal.style.display = 'none'; });
+    forgotModal?.addEventListener('click', (e) => { if (e.target === forgotModal) forgotModal.style.display = 'none'; });
+
+    forgotSubmit?.addEventListener('click', async () => {
+      const email = document.getElementById('forgot-email')?.value;
+      if (!email) return;
+      forgotSubmit.textContent = 'Sending…';
+      forgotSubmit.disabled = true;
+      await new Promise(r => setTimeout(r, 1200));
+      forgotSubmit.textContent = '✓ Sent!';
+      forgotSubmit.style.background = '#34D399';
+      setTimeout(() => { forgotModal.style.display = 'none'; }, 1200);
+    });
+
+    // ─── OAuth Buttons ─────────────────────────────────
+    document.getElementById('google-btn')?.addEventListener('click', () => {
+      const btn = document.getElementById('google-btn');
+      btn.innerHTML = '<span class="oauth-btn-icon">⏳</span> Connecting…';
+      btn.disabled = true;
+      setTimeout(() => { window.location.href = 'index.html'; }, 1500);
+    });
+
+    document.getElementById('github-btn')?.addEventListener('click', () => {
+      const btn = document.getElementById('github-btn');
+      btn.innerHTML = '<span class="oauth-btn-icon">⏳</span> Connecting…';
+      btn.disabled = true;
+      setTimeout(() => { window.location.href = 'index.html'; }, 1500);
+    });
+
+    // ─── Animated Particles on Brand Panel ────────────
+    function createParticles() {
+      const container = document.getElementById('auth-particles');
+      if (!container) return;
+
+      for (let i = 0; i < 25; i++) {
+        const p = document.createElement('div');
+        p.classList.add('particle');
+
+        const size = Math.random() * 3 + 1;
+        const x = Math.random() * 100;
+        const delay = Math.random() * 8;
+        const duration = Math.random() * 10 + 8;
+        const startY = Math.random() * 100 + 100;
+
+        const opacity = Math.random() * 0.5 + 0.2;
+        const isAccent = Math.random() > 0.5;
+
+        p.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}%;
+        bottom: ${startY - 100}%;
+        animation-delay: ${delay}s;
+        animation-duration: ${duration}s;
+        animation-name: particle-drift;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        background: ${isAccent ? 'rgba(108,99,255,0.7)' : 'rgba(255,101,132,0.6)'};
+        opacity: ${opacity};
+      `;
+        container.appendChild(p);
+      }
+    }
+
+    createParticles();
+  </script>
+</body>
+
+</html>
