@@ -75,3 +75,12 @@ The design language of PixelVault relies on a few key concepts:
 ## 📄 License
 
 This project is intended as a premium UI showcase. All rights reserved. 
+
+## Photos of the Software
+<img width="1512" height="860" alt="Screenshot 2026-07-27 at 10 20 49 PM" src="https://github.com/user-attachments/assets/d5d0516f-e289-40d8-ab0c-3da91e7e1a58" />
+
+<img width="1510" height="860" alt="Screenshot 2026-07-27 at 10 21 18 PM" src="https://github.com/user-attachments/assets/ad846ee7-f465-4277-b278-997ab591faa7" />
+
+<img width="1512" height="861" alt="Screenshot 2026-07-27 at 10 21 40 PM" src="https://github.com/user-attachments/assets/8d38dfda-7bff-4c38-b165-09c87b7c3123" />
+
+
